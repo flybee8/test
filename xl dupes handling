@@ -1,0 +1,8 @@
+mylist = ["name", "state", "name", "city", "name", "zip", "zip"]
+
+from collections import Counter # Counter counts the number of occurrences of each item
+counts = Counter(mylist) # so we have: {'name':3, 'state':1, 'city':1, 'zip':2}
+for s,num in counts.items():
+    if num > 1: # ignore strings that only appear once
+        for suffix in range(1, num + 1): # suffix starts at 1 and increases by 1 each time
+            mylist[mylist.index(s)] = s + str(suffix)
